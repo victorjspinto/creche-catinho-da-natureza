@@ -6,45 +6,10 @@ angular.module('creche.login', [])
     })
   })
 
-  .service('$loginService', function($q, $location) {
-    var currentUser = undefined;
-
-    var defer = $q.defer();
-    firebase.auth().onAuthStateChanged(function(user) {
-      if(user) {
-        currentUser = user;
-        if($location.path() === '/login') {
-          $location.path('/');
-        }
-      } else {
-        currentUser = false;
-
-        if($location.path() !== '/login') {
-          $location.path('/login');
-        }
-      }
-
-      defer.resolve(currentUser);
-    });
-
-    return {
-      currentUser: function() {
-        if(currentUser !== undefined) {
-          return $q.when(currentUser);
-        }
-        return defer.promise;
-      }
-    }
-  })
-
-  .run(function($rootScope, $loginService, $location) {
+  .run(function($rootScope, $location) {
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
-      $loginService
-        .currentUser()
-        .then(function(user) {
-          if(!user && current.isSecured) {
-            $location.path('/login');
-          }
-        })
+      if(!firebase.auth().currentUser && current.isSecured) {
+        $location.path('/login');
+      }
     });
   });
