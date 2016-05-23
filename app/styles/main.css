@@ -1,0 +1,16 @@
+body {
+  background-image: url(http://educamais.com/wp-content/uploads/2012/09/como-escolher-creche-ideal.jpg)
+}
+
+.main-raised {
+  margin: auto !important;
+}
+
+.card-signup {
+  margin-top: 60px;
+}
+
+.card-signup .alert {
+  margin-left: 10px;
+  margin-right: -10px;
+}

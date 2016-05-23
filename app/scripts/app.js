@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
 
-    'creche.login'
+    'creche.login',
+    'creche.students'
   ])
   .config(function ($routeProvider) {
     $routeProvider
