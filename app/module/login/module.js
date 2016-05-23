@@ -1,19 +1,4 @@
 angular.module('creche.login', [])
-  .run(function($location, $rootScope, $loginService) {
-    firebase.auth().onAuthStateChanged(function(user) {
-      var route;
-      if (user) {
-        route = '/';
-      } else {
-        route = '/login';
-      }
-      $rootScope.$apply(function() {
-        $loginService.setCurrentUser(user);
-        $location.path(route);
-      });
-    });
-  })
-
   .config(function ($routeProvider) {
     $routeProvider.when('/login', {
       templateUrl: 'module/login/login.html',
@@ -21,18 +6,45 @@ angular.module('creche.login', [])
     })
   })
 
-  .service('$loginService', function() {
+  .service('$loginService', function($q, $location) {
     var currentUser = undefined;
+
+    var defer = $q.defer();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user) {
+        currentUser = user;
+        if($location.path() === '/login') {
+          $location.path('/');
+        }
+      } else {
+        currentUser = false;
+
+        if($location.path() !== '/login') {
+          $location.path('/login');
+        }
+      }
+
+      defer.resolve(currentUser);
+    });
+
     return {
-      setCurrentUser: function(user) { currentUser = user; },
-      currentUser: function() { return currentUser; }
+      currentUser: function() {
+        if(currentUser !== undefined) {
+          return $q.when(currentUser);
+        }
+        return defer.promise;
+      }
     }
   })
 
   .run(function($rootScope, $loginService, $location) {
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
-      if(!$loginService.currentUser() && current.isSecured) {
-        $location.path('/login');
-      }
+      $loginService
+        .currentUser()
+        .then(function(user) {
+          if(!user && current.isSecured) {
+            $location.path('/login');
+          }
+        })
     });
   });
