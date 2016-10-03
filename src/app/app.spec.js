@@ -1,4 +1,4 @@
-import app from './app';
+import app from './app.ts';
 
 describe('app', () => {
 
@@ -6,7 +6,7 @@ describe('app', () => {
     let ctrl;
 
     beforeEach(() => {
-      angular.mock.module(app);
+      angular.mock.module(app.name);
 
       angular.mock.inject(($controller) => {
         ctrl = $controller('AppCtrl', {});
