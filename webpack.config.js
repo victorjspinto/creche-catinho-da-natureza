@@ -30,7 +30,7 @@ module.exports = function makeWebpackConfig () {
    * Karma will set this when it's a test build
    */
   config.entry = isTest ? {} : {
-    app: './src/app/app.js'
+    app: './src/app/app.ts'
   };
 
   /**
@@ -66,7 +66,7 @@ module.exports = function makeWebpackConfig () {
   } else if (isProd) {
     config.devtool = 'source-map';
   } else {
-    config.devtool = 'eval-source-map';
+    config.devtool = 'source-map';
   }
 
   /**
@@ -116,6 +116,10 @@ module.exports = function makeWebpackConfig () {
       // Allow loading html through js
       test: /\.html$/,
       loader: 'raw'
+    }, {
+      // TS Loaders
+      test: /\.ts$/, 
+      loader: 'ng-annotate!ts-loader' 
     }]
   };
 

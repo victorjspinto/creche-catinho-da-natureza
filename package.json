@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A workflow for Angular made with Webpack",
   "scripts": {
-    "preinstall": "npm install -g webpack webpack-dev-server karma",
+    "preinstall": "npm install -g webpack webpack-dev-server karma typings typescript",
+    "postinstall": "typings install",
     "build": "rimraf dist && webpack --bail --progress --profile",
     "server": "webpack-dev-server --history-api-fallback --inline --progress",
     "test": "karma start",
@@ -21,7 +22,9 @@
   },
   "homepage": "https://github.com/Foxandxss/angular-webpack-workflow",
   "dependencies": {
-    "angular": "^1.5.0"
+    "angular": "^1.5.0",
+    "jquery": "^3.1.1",
+    "typescript": "^2.0.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",
@@ -43,6 +46,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
+    "ng-annotate-loader": "^0.2.0",
     "node-libs-browser": "^1.0.0",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.4",
@@ -50,6 +54,7 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.1",
     "style-loader": "^0.13.0",
+    "ts-loader": "^0.8.2",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   }
