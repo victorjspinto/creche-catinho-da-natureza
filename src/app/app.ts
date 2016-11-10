@@ -17,8 +17,9 @@ let app = () => {
 class AppCtrl {
   private url:String;
   
-  constructor() {
+  constructor($log:ng.ILogService) {
     this.url = 'https://github.com/preboot/angular-webpack';
+    $log.info("Tipagem funcionou!");
   }
 }
 
