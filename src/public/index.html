@@ -1,14 +1,48 @@
 <!doctype html>
-<html ng-app="app" lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Angular App</title>
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <base href="/">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!--<base href="/">-->
 </head>
-<body>
-  <app></app>
+<body ng-app="app" layout="column">
+  <md-toolbar>
+    <h1>Olá mundo, titulo!</h1>
+  </md-toolbar>
+
+  <div class="container" layout="row" flex>
+    <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+      <md-list>
+        <md-list-item>
+          <md-button>
+            <md-icon>account_circle</md-icon>
+            Alunos
+        </md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button>Ola mundo</md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button>Ola mundo</md-button>
+        </md-list-item>
+      </md-list>
+    </md-sidenav>
+    <md-content flex>Content</md-content>
+  </div>
+
+  <!--<app></app>-->
+
+  <style>
+    .lightblue {
+      background-color: #0000bb;
+    }
+    .lightgreen {
+      background-color: #00bb00;
+    }
+  </style>
 </body>
 </html>

@@ -1,10 +1,13 @@
 declare function require(module: string):any;
 declare var global:any;
 
-global.$ = global.jQuery = require('jquery');
+// global.$ = global.jQuery = require('jquery');
 import angular = require('angular');
+require('angular-material');
+require('angular-material/angular-material.css');
 
-require('../style/app.css');
+// console.log(angularMaterial);
+
 
 let app = () => {
   return {
@@ -24,7 +27,10 @@ class AppCtrl {
 }
 
 export default angular
-  .module('app', [])
+  .module('app', ['ngMaterial'])
   .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
+  .controller('AppCtrl', AppCtrl)
+  .run(() => {
+    console.log("Rodou :)")
+  });
 
