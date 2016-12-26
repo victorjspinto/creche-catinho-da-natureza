@@ -5,9 +5,9 @@ declare var global:any;
 import angular = require('angular');
 require('angular-material');
 require('angular-material/angular-material.css');
+require('../style/app.css');
 
-// console.log(angularMaterial);
-
+import sidebarMenu from "./sidebar-menu/index.ts";
 
 let app = () => {
   return {
@@ -27,7 +27,7 @@ class AppCtrl {
 }
 
 export default angular
-  .module('app', ['ngMaterial'])
+  .module('app', ['ngMaterial', sidebarMenu.name])
   .directive('app', app)
   .controller('AppCtrl', AppCtrl)
   .run(() => {

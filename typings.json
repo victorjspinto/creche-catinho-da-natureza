@@ -1,7 +1,7 @@
 {
   "name": "angular-webpack-workflow",
-  "dependencies": {},
   "globalDependencies": {
+    "angular-material": "registry:dt/angular-material#1.1.0+20161220195540",
     "angular": "registry:dt/angular#1.5.0+20160922195358",
     "jquery": "registry:dt/jquery#1.10.0+20160929162922"
   }

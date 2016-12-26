@@ -3,8 +3,12 @@
     "module": "commonjs",
     "sourceMap": true
   },
-  "files": [
-    "src/app/app.ts",
+  "include": [
+    "src/**/*",
     "typings/index.d.ts"
   ]
+  // "files": [
+  //   "src/app/app.ts",
+  //   "typings/index.d.ts"
+  // ]
 }
