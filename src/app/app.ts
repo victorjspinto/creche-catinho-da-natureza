@@ -30,7 +30,7 @@ export default angular
   .module('app', ['ngMaterial', sidebarMenu.name])
   .directive('app', app)
   .controller('AppCtrl', AppCtrl)
-  .run(() => {
-    console.log("Rodou :)")
+  .run(($log:ng.ILogService) => {
+    $log.info("Rodou :)")
   });
 
