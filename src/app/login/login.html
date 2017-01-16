@@ -1,0 +1,23 @@
+<md-content layout="vertical" flex id="content">
+    <div layout="row" layout-align="center center" layout-fill>
+        <md-whiteframe class="md-whiteframe-z1" layout="column" flex="30" layout-padding>
+            <form>
+                <div layout="column">
+                    <md-input-container>
+                        <label>Email</label>
+                        <input ng-model="ctrl.username">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Password</label>
+                        <input ng-model="ctrl.password" type="password">
+                    </md-input-container>
+
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-raised" flex="30" ng-click="ctrl.login()">Login</md-button>
+                        <!--<md-button class="md-raised md-primary" flex="30">Register</md-button>-->
+                    </div>
+                </div>
+            </form>
+        </md-whiteframe>
+    </div>
+</md-content>

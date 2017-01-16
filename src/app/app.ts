@@ -5,32 +5,12 @@ declare var global:any;
 import angular = require('angular');
 require('angular-material');
 require('angular-material/angular-material.css');
-require('../style/app.css');
+require('./app.css');
 
 import sidebarMenu from "./sidebar-menu/index.ts";
-
-let app = () => {
-  return {
-    template: require('./app.html'),
-    controller: 'AppCtrl',
-    controllerAs: 'app'
-  }
-};
-
-class AppCtrl {
-  private url:String;
-  
-  constructor($log:ng.ILogService) {
-    this.url = 'https://github.com/preboot/angular-webpack';
-    $log.info("Tipagem funcionou!");
-  }
-}
+import app from './app.component.ts';
+import login from './login/login.component.ts';
 
 export default angular
-  .module('app', ['ngMaterial', sidebarMenu.name])
-  .directive('app', app)
-  .controller('AppCtrl', AppCtrl)
-  .run(($log:ng.ILogService) => {
-    $log.info("Rodou :)")
-  });
+  .module('app', ['ngMaterial', sidebarMenu.name, app.name, login.name]);
 
