@@ -7,7 +7,7 @@ require('angular-material');
 require('angular-material/angular-material.css');
 require('./app.css');
 
-var firebase = require('firebase/app');
+var firebase = require('firebase');
 var config = {
   apiKey: "AIzaSyBjAR7takcSRt_3VU7T3grPxA5dUKgfZbo",
   authDomain: "creche-cantinho-da-natureza.firebaseapp.com",
@@ -15,7 +15,7 @@ var config = {
   storageBucket: "creche-cantinho-da-natureza.appspot.com",
   messagingSenderId: "507255567859"
 };
-firebase.initializeApp(config);
+var temp = firebase.initializeApp(config);
 
 require('angularfire');
 
@@ -26,11 +26,16 @@ import login from './login/login.component.ts';
 
 export default angular
   .module('app', ['ngMaterial', sidebarMenu.name, app.name, login.name, 'firebase'])
-  .run( ($log:ng.ILogService, $firebaseAuth:AngularFireAuth) => {
-    $firebaseAuth.$authWithPassword({ email: "teste@teste", password: "password" })
-      .then((result) => {
-        $log.info(result);
-      });
+  .run( ($log:ng.ILogService, $firebaseAuth:any) => {
+    var auth = firebase.auth();
+    var angularFireAuth = $firebaseAuth(auth);
+    angularFireAuth
+      .$signInWithEmailAndPassword("victorjspinto@gmail.com", "123456")
+        .then((result) => {
+          $log.info(result);
+        }, (error) => {
+          $log.info(error);
+        });
     // var db = new Firebase("https://creche-cantinho-da-natureza.firebaseio.com") ;
     // db.authWithPassword({ email: "teste", password : "teste2"}, (error, success) => {
     //   if(error) {
