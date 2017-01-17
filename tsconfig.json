@@ -10,11 +10,13 @@
   },
   "include": [
     "src/**/*",
-    "typings/index.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
+    "declaration.d.ts",
+    "typings/index.d.ts",
+    "node_modules/firebase/firebase.d.ts"
   ]
+  // "exclude": [
+  //   "node_modules"
+  // ]
   // "files": [
   //   "src/app/app.ts",
   //   "typings/index.d.ts"

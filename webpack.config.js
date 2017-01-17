@@ -206,5 +206,9 @@ module.exports = function makeWebpackConfig () {
     stats: 'minimal'
   };
 
+  config.resolve = {
+    extensions: ['', '.js', '.es6', '.ts']
+  };
+
   return config;
 }();

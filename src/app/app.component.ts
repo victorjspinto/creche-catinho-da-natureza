@@ -9,6 +9,6 @@ class AppCtrl {
 
 export default angular.module('app.component', [])
     .component('app', {
-        template: require('./app.html'),
+        template: "require('./app.html')",
         controller: AppCtrl
     })
