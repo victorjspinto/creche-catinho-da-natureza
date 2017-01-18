@@ -58,8 +58,9 @@
     "rimraf": "^2.5.1",
     "style-loader": "^0.13.0",
     "ts-loader": "^0.8.2",
+    "typescript": "^2.0.3",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1",
-    "typescript": "^2.0.3"
+    "webpack-browser-plugin": "^1.0.20",
+    "webpack-dev-server": "^1.14.1"
   }
 }
