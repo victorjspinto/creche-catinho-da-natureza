@@ -2,8 +2,8 @@ import * as angular from 'angular';
 import 'angular-route';
 import 'angular-material';
 
-require('angular-material/angular-material.css');
-require('./app.css');
+import 'angular-material/angular-material.css';
+import './app.css';
 
 import appModule from './app.component';
 import loginModule from './login/login.component';
