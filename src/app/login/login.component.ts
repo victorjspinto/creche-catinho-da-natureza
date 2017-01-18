@@ -1,3 +1,5 @@
+import { route } from 'angular';
+
 class LoginController {
 
     public username:String;
@@ -24,7 +26,7 @@ export default angular.module('app.login', [])
         controllerAs: 'ctrl',
         template: require('./login.html')
     })
-    .config(($routeProvider) => {
+    .config(($routeProvider:route.IRouteProvider) => {
         $routeProvider.when('/login', {
             template: '<login layout="column" flex layout-fill></login>'
         })
