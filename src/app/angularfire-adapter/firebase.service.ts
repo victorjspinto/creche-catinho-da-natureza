@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
 import 'angularfire';
+import routeModule from './angular-route-integration';
 
 var config = {
     apiKey: "AIzaSyBjAR7takcSRt_3VU7T3grPxA5dUKgfZbo",
@@ -10,7 +11,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-export default angular.module('firebase-adapter', ['firebase'])
+export default angular.module('firebase-adapter', ['firebase', routeModule.name])
     .factory('angularFireAuth', ($firebaseAuth:any) => {
         return $firebaseAuth(firebase.auth());
     })
@@ -21,4 +22,4 @@ export default angular.module('firebase-adapter', ['firebase'])
             }, (error) => {
                 $log.error(error);
             });
-    });
+    }).name;

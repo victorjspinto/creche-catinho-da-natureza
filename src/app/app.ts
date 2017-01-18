@@ -1,5 +1,7 @@
-require('angular');
-require('angular-material');
+import * as ng from 'angular';
+import 'angular-route';
+import 'angular-material';
+
 require('angular-material/angular-material.css');
 require('./app.css');
 
@@ -8,5 +10,5 @@ import loginModule from './login/login.component';
 import firebaseAdapter from './angularfire-adapter/firebase.service';
 
 export default angular
-  .module('app', ['ngMaterial', appModule.name, loginModule.name, firebaseAdapter.name]);
+  .module('app', ['ngMaterial', 'ngRoute', appModule, loginModule, firebaseAdapter]);
 

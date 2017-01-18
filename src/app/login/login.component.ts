@@ -8,7 +8,7 @@ class LoginController {
     }
 
     public login() {
-        this.$log.debug("Login sendo realizado com o usuario [" , this.username, "] e senha [", this.password, "]");
+
         this.angularFireAuth.$signInWithEmailAndPassword(this.username, this.password)
             .then((user) => {
                 this.$log.info("User loggedin success", user);
@@ -23,4 +23,10 @@ export default angular.module('app.login', [])
         controller: LoginController,
         controllerAs: 'ctrl',
         template: require('./login.html')
-    });
+    })
+    .config(($routeProvider) => {
+        $routeProvider.when('/login', {
+            template: '<login layout="column" flex layout-fill></login>'
+        })
+    }).name
+    ;

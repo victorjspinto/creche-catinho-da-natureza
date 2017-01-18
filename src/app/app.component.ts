@@ -1,4 +1,4 @@
-class AppCtrl {
+class AppController {
   public url:String;
   
   constructor($log:ng.ILogService) {
@@ -9,6 +9,6 @@ class AppCtrl {
 
 export default angular.module('app.component', [])
     .component('app', {
-        template: "require('./app.html')",
-        controller: AppCtrl
-    })
+        template: require('./app.html'),
+        controller: AppController
+    }).name
