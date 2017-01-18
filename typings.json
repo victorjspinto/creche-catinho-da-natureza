@@ -5,6 +5,7 @@
     "jquery": "registry:dt/jquery#1.10.0+20160929162922"
   },
   "dependencies": {
-    "angular-material": "registry:dt/angular-material#1.1.0+20170112174021"
+    "angular-material": "registry:dt/angular-material#1.1.0+20170112174021",
+    "angular-route": "registry:dt/angular-route#1.3.0+20161206185711"
   }
 }
