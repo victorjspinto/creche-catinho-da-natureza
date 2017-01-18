@@ -11,6 +11,7 @@ export default angular.module('app.student.list', [])
     })
     .config(($routeProvider) => {
         $routeProvider.when('/students', {
+            isSecured: true,
             template: '<student-list></student-list>'
         })
     }).name
