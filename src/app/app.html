@@ -1,13 +1,30 @@
 <md-toolbar>
-  <h1>Centro Educacional Cantinho da Natureza</h1>
+  <!--<h1>Centro Educacional Cantinho da Natureza</h1>-->
 </md-toolbar>
 
 <div class="container" layout="row" flex>
 
   <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
-    <md-content role="navigation">
-      Menu
-    </md-content>
+    <md-list>
+      <md-list-item ng-click="null">
+        <md-icon md-font-icon="Material Icons"
+                 aria-label="Editar">
+          person
+        </md-icon>
+        <p>Aluno</p>
+      </md-list-item>
+
+      <md-divider></md-divider>
+      <md-subheader>Usuario</md-subheader>
+
+      <md-list-item ng-click="null">
+        <md-icon md-font-icon="Material Icons"
+                 aria-label="Editar">
+          exit_to_app
+        </md-icon>
+        <p>Sair</p>
+      </md-list-item>
+    </md-list>
   </md-sidenav>
 
   <md-content flex>
