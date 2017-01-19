@@ -44,4 +44,78 @@
             <input >
         </md-input-container>
     </div>
+
+    <h4>Origem</h4>
+    <div layout-gt-sm="row">
+         <md-input-container flex>
+            <label>Estado</label>
+            <input >
+        </md-input-container>
+        <md-input-container flex>
+            <label>Cidade</label>
+            <input >
+        </md-input-container>
+    </div>
+
+    <h4>Residência</h4>
+    <div layout-gt-sm="row">
+        <md-input-container flex>
+            <label>Estado</label>
+            <input >
+        </md-input-container>
+        <md-input-container flex>
+            <label>Cidade</label>
+            <input >
+        </md-input-container>
+    </div>
+
+    <div layout-gt-sm="row">
+        <md-input-container flex-gt-sm="20">
+            <label>Escolaridade</label>
+            <md-select ng-model="ctrl.asd">
+                <md-option ng-disabled="true"><em>Selecione</em></md-option>
+                <md-option ng-value="Branco">Analfabeto</md-option>
+                <md-option ng-value="1grauincompleto">1º Grau Inconpleto</md-option>
+                <md-option ng-value="1graucompleto">1º Grau Completo</md-option>
+                <md-option ng-value="2grauincompleto">2º Grau Inconpleto</md-option>
+                <md-option ng-value="2graucompleto">2º Grau Completo</md-option>
+                <md-option ng-value="Superior Incompleto">Superior Incompleto</md-option>
+                <md-option ng-value="Superior Completo">Superior Completo</md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Formação Profissional</label>
+            <input >
+        </md-input-container>
+    </div>
+
+    <div layout-gt-sm="row">
+        <md-input-container flex>
+            <label>Ocupação</label>
+            <input >
+        </md-input-container>
+        <md-input-container  flex-gt-sm="30">
+            <label>Situação de Emprego</label>
+            <md-select ng-model="ctrl.asd">
+                <md-option ng-disabled="true"><em>Selecione</em></md-option>
+                <md-option ng-value="Carteira Assinada">Carteira Assinada</md-option>
+                <md-option ng-value="Sem Carteira Assinada">Sem Carteira Assinada</md-option>
+                <md-option ng-value="Desempregado">Desempregado</md-option>
+                <md-option ng-value="Aposentado">Aposentado</md-option>
+                <md-option ng-value="Outro">Outro</md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>Especifique a Situação de Emprego</label>
+            <input >
+        </md-input-container>
+    </div>
+
+    <div layout-gt-sm="row">
+        <md-input-container flex>
+            <label>Campo para Observações necessárias</label>
+            <textarea placeholder="title" ng-model="title">
+        </md-input-container>
+    </div>
 </form>

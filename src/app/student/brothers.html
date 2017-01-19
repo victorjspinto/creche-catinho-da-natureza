@@ -1,0 +1,81 @@
+<div layout="column" ng-show="ctrl.state == 'Edit'">
+    <form>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Nome</label>
+                <input ng-model="ctrl.selected.name">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Data de Nascimento</label>
+                <md-input-container>
+                    <md-datepicker ng-model="ctrl.selected.birthdate" md-placeholder="Data de Nascimento"></md-datepicker>        
+                </md-input-container>
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Raça</label>
+                <md-select ng-model="ctrl.selected.race">
+                    <md-option ng-disabled="true"><em>Selecione</em></md-option>
+                    <md-option ng-value="Branco">Branco</md-option>
+                    <md-option ng-value="Negro">Negro</md-option>
+                    <md-option ng-value="Pardo">Pardo</md-option>
+                    <md-option ng-value="Amarelo">Amarelo</md-option>
+                    <md-option ng-value="Indígena">Indígena</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex>
+                <md-radio-group ng-model="ctrl.selected.gender">
+                    <md-radio-button value="Masculino">Masculino</md-radio-button>
+                    <md-radio-button value="Feminino">Feminino</md-radio-button>
+                </md-radio-group>
+            </md-input-container>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Religião</label>
+                <input ng-model="ctrl.selected.religion">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <md-checkbox ng-model="ctrl.selected.works" aria-label="Trabalha?">
+                    Trabalha?
+                </md-checkbox>
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <md-checkbox ng-model="ctrl.selected.liveWithStudent" aria-label="Mora com o aluno?">
+                    Mora com o Aluno?
+                </md-checkbox>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Profession</label>
+                <input ng-model="ctrl.selected.profession">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="end end">
+            <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
+            <md-button class="md-raised md-primary" ng-click="ctrl.save()">Adicionar</md-button>
+        </div>
+    </form>
+</div>
+<div layout="column" ng-show="ctrl.state == 'List'">
+    <md-list flex>
+        <md-list-item class="md-2-line" ng-click="ctrl.edit(brother)" ng-repeat="brother in ctrl.brothers">
+            <div class="md-list-item-text">
+                <h3>{{ brother.name }}</h3>
+                <h4>{{ brother.birthdate }}</h4>
+            </div>
+            <md-icon md-font-icon="Material Icons"
+                ng-click="ctrl.remove(brother)"
+                aria-label="Editar" 
+                class="md-secondary md-hue-3" >
+                delete
+            </md-icon>
+        </md-list-item>
+    </md-list>
+    <div layout="row" layout-align="end end">
+        <md-button ng-click="ctrl.add()">Adicionar</md-button>
+    </div>
+</div>
