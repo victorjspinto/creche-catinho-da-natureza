@@ -1,0 +1,207 @@
+<md-content layout-fill layout-padding class="md-default-theme">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Dados Pessoais</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <form>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="30">
+                        <md-radio-group layout="row">
+                            <md-radio-button value="Creche">Creche</md-radio-button>
+                            <md-radio-button value="Prosseguir">Prosseguir</md-radio-button>
+                        </md-radio-group>
+                    </md-input-container>
+
+                    <md-input-container flex-gt-sm="30">
+                        <label>Turma</label>
+                        <input >
+                    </md-input-container>
+
+                    <md-input-container flex-gt-sm="20">
+                        <label>Ano</label>
+                        <input >
+                    </md-input-container>
+
+                    <md-input-container flex-gt-sm="20">
+                        <label>Matrícula</label>
+                        <input >
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Nome</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container>
+                        <md-datepicker ng-model="myDate" md-placeholder="Data de Nascimento"></md-datepicker>        
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Nacionalidade</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Naturalidade</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Religião</label>
+                        <input >
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                        <md-input-container flex-gt-sm="30">
+                        <label>Telefone</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-offset-gt-sm="20" flex>
+                        <md-radio-group>
+                            <md-radio-button value="Masculino">Masculino</md-radio-button>
+                            <md-radio-button value="Feminino">Feminino</md-radio-button>
+                        </md-radio-group>
+                    </md-input-container>
+                </div>
+                
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Nome do Pai</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="30">
+                        <label>Telefone do Pai</label>
+                        <input >
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Nome da Mãe</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="30">
+                        <label>Telefone da Mãe</label>
+                        <input >
+                    </md-input-container>
+                </div>
+            </form>
+        </md-card-content>
+    </md-card>
+    <div layout-gt-sm="row">
+        <md-card flex-gt-sm="50">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Endereço</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <div layout-gt-sm="row">
+                    <md-input-container flex-gt-sm="60">
+                        <label>Endereço</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="40">
+                        <label>Nº</label>
+                        <input >
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Complemento</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Bairro</label>
+                        <input >
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Cidade</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="10">
+                        <label>UF</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="20">
+                        <label>CEP</label>
+                        <input >
+                    </md-input-container>
+                </div>
+            </md-card-content>
+        </md-card>
+        <md-card flex-gt-sm="50">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Autorizados a retirar a criança</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <student-responsible></student-responsible>
+            </md-card-content>
+        </md-card>
+    </div>
+     <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Escola</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <form>
+                <div layout-gt-sm="row">
+                    <md-input-container flex-gt-sm="40">
+                        <label>Nome da Escola</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="20">
+                        <label>Telefone</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="20">
+                        <label>Série / Ano</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="20">
+                        <label>Turno</label>
+                        <md-select ng-model="ctrl.teste">
+                            <md-option ng-disabled="true"><em>Selecione</em></md-option>
+                            <md-option ng-value="Manhã">Manhã</md-option>
+                            <md-option ng-value="Tarde">Tarde</md-option>
+                            <md-option ng-value="Noite">Noite</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Nome da Professora</label>
+                        <input >
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Nome da Diretora</label>
+                        <input >
+                    </md-input-container>
+                </div>
+            </form>
+        </md-card-content>
+     </md-card>
+    
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Dados do Pai</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <student-parent></student-parent>
+        </md-card-content>
+    </md-card>
+</md-content>
