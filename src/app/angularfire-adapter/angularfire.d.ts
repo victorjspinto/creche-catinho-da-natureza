@@ -5,5 +5,6 @@ declare namespace angularfire {
         
         $onAuthStateChanged(callback:(x:firebase.User) => void)
         $getAuth():firebase.User
+        $requireSignIn(): ng.IPromise<firebase.User>;
     }
 }

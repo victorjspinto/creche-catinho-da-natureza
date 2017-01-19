@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "angular-material": "registry:dt/angular-material#1.1.0+20170112174021",
-    "angular-route": "registry:dt/angular-route#1.3.0+20161206185711"
+    "angular-permission": "registry:dt/angular-permission#2.3.6+20161014080718",
+    "angular-route": "registry:dt/angular-route#1.3.0+20161206185711",
+    "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20161222093745"
   }
 }

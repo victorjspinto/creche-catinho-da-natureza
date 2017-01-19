@@ -1,4 +1,4 @@
-import { route } from 'angular';
+import { ui } from 'angular';
 
 class LoginController {
 
@@ -26,9 +26,16 @@ export default angular.module('app.login', [])
         controllerAs: 'ctrl',
         template: require('./login.html')
     })
-    .config(($routeProvider:route.IRouteProvider) => {
-        $routeProvider.when('/login', {
-            template: '<login layout="column" flex layout-fill></login>'
-        })
+    .config(($stateProvider:ui.IStateProvider) => {
+        $stateProvider.state('login', {
+            url: '/login',
+            template: '<login layout="column" flex layout-fill></login>',
+            data: {
+                permissions: {
+                    except: 'isAuthorized',
+                    redirectTo: 'students'
+                }
+            }
+        });
     }).name
     ;

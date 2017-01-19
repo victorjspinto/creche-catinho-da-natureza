@@ -1,23 +1,18 @@
 import { route } from 'angular';
 
-export interface SecurableRoute extends route.IRoute {
-    isSecured?:Boolean;
-}
-
 export default angular.module('firebase-adapter.ngroute', [])
-    .run((angularFireAuth:angularfire.AngularFireAuth, $location:ng.ILocationService, $log:ng.ILogService) => {
-        if(!angularFireAuth.$getAuth()) {
-            $log.info('Non-logged user detected, redirecting to login');
-            $location.path('/login');
-        }
+    .config(($urlRouterProvider) => {
+        // Prevent router from automatic state resolving
+        $urlRouterProvider.deferIntercept();
     })
-    .run(($rootScope:ng.IScope, angularFireAuth:angularfire.AngularFireAuth, $location:ng.ILocationService, $log:ng.ILogService) => {
-        $rootScope.$on('$routeChangeStart', (event, next:SecurableRoute) => {
-            if(next.isSecured) {
-                if(!angularFireAuth.$getAuth()) {
-                    $log.info('Non logged user trying to access Route [', next, ']');
-                    $location.path('/login');
-                }
-            }
-        })
-    });
+    .run((angularFireAuth:angularfire.AngularFireAuth, $location:ng.ILocationService, $urlRouter, $log:ng.ILogService) => {
+        angularFireAuth.$requireSignIn().then((user) => {
+            
+        }).finally(() => {
+            // Once permissions are set-up 
+            // kick-off router and start the application rendering
+            $urlRouter.sync();
+            // Also enable router to listen to url changes
+            $urlRouter.listen();
+        });
+    })
