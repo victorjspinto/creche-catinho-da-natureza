@@ -1,11 +1,15 @@
-import { ui } from 'angular';
+import { ui, permission } from 'angular';
 
 class LoginController {
 
     public username:String;
     public password:String;
 
-    constructor(private $log:ng.ILogService, private angularFireAuth:angularfire.AngularFireAuth) {
+    constructor(private $log:ng.ILogService, 
+                private angularFireAuth:angularfire.AngularFireAuth,
+                private PermPermissionStore:permission.PermissionStore,
+                private $state:ui.IStateService
+                ) {
 
     }
 
@@ -14,6 +18,8 @@ class LoginController {
         this.angularFireAuth.$signInWithEmailAndPassword(this.username, this.password)
             .then((user) => {
                 this.$log.info("User loggedin success", user);
+                this.PermPermissionStore.definePermission('isAuthorized', () => true);
+                this.$state.go('students');
             }, (cause) => {
                 this.$log.error("user login fail with cause", cause);
             });
