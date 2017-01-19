@@ -1,0 +1,42 @@
+<div layout="column" ng-show="ctrl.state == 'Edit'">
+    <form>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Nome</label>
+                <input ng-model="ctrl.selected.name">
+            </md-input-container>
+            <md-input-container>
+                <label>Idade</label>
+                <input ng-model="ctrl.selected.age">
+            </md-input-container>
+            <md-input-container>
+                <label>Telefone</label>
+                <input ng-model="ctrl.selected.telephone">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="end end">
+            <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
+            <md-button class="md-raised md-primary" ng-click="ctrl.save()">Adicionar</md-button>
+        </div>
+    </form>
+</div>
+<div layout="column" ng-show="ctrl.state == 'List'">
+    <md-list flex>
+        <md-list-item class="md-3-line" ng-click="ctrl.edit(responsible)" ng-repeat="responsible in ctrl.responsibles">
+            <div class="md-list-item-text">
+                <h3>{{ responsible.name }}</h3>
+                <h4>{{ responsible.age }} anos</h4>
+                <p>{{ responsible.telephone }}</p>
+            </div>
+            <md-icon md-font-icon="Material Icons"
+                ng-click="ctrl.remove(responsible)"
+                aria-label="Editar" 
+                class="md-secondary md-hue-3" >
+                delete
+            </md-icon>
+        </md-list-item>
+    </md-list>
+    <div layout="row" layout-align="end end">
+        <md-button ng-click="ctrl.add()">Adicionar</md-button>
+    </div>
+</div>
