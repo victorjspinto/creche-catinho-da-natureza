@@ -4,9 +4,9 @@
 
 <div class="container" layout="row" flex>
 
-  <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+  <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp">
     <md-list>
-      <md-list-item ng-click="null">
+      <md-list-item ui-sref="students">
         <md-icon md-font-icon="Material Icons"
                  aria-label="Editar">
           person
