@@ -18,34 +18,4 @@ export default angular
       var $state = $injector.get('$state');
       $state.go('students')
     });
-  })
-  // .config(($stateProvider) => {
-  //   $stateProvider.decorator('$state', (state) => {
-  //     state.$$permissionState = function() {
-  //       return state;
-  //     }
-  //     return state;
-  //   });
-  // });
-
-
-
-  // config($stateProvider) {
-  //   'ngInject';
-
-  //   $stateProvider.decorator('$state', function (state) {
-  //     /**
-  //      * Property containing full state object definition
-  //      *
-  //      * This decorator is required to access full state object instead of just it's configuration
-  //      * Can be removed when implemented https://github.com/angular-ui/ui-router/issues/13.
-  //      *
-  //      * @returns {Object}
-  //      */
-  //     state.self.$$permissionState = function () {
-  //       return state;
-  //     };
-
-  //     return state;
-  //   });
-  // }
+  });
