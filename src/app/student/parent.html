@@ -1,0 +1,47 @@
+<form>
+    <div layout-gt-sm="row">
+        <md-input-container flex>
+            <label >Nome</label>
+            <input >
+        </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+         <md-input-container flex>
+            <label>Identidade</label>
+            <input >
+        </md-input-container>
+         <md-input-container flex>
+            <label>CPF</label>
+            <input >
+        </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+        <md-input-container flex="30">
+            <md-datepicker ng-model="myDate" md-placeholder="Data de Nascimento"></md-datepicker>        
+        </md-input-container>
+        <md-input-container flex-gt-sm="20">
+            <label>Raça</label>
+            <md-select ng-model="ctrl.asd">
+                <md-option ng-disabled="true"><em>Selecione</em></md-option>
+                <md-option ng-value="Branco">Branco</md-option>
+                <md-option ng-value="Negro">Negro</md-option>
+                <md-option ng-value="Pardo">Pardo</md-option>
+                <md-option ng-value="Amarelo">Amarelo</md-option>
+                <md-option ng-value="Indígena">Indígena</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" layout-gt-sm="row">
+            <md-radio-group layout="row">
+                <md-radio-button value="Católico">Católico</md-radio-button>
+                <md-radio-button value="Não Católico">Não Católico</md-radio-button>
+                <md-radio-button value="Outros">Outros</md-radio-button>
+            </md-radio-group>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Especifique aqui</label>
+            <input >
+        </md-input-container>
+    </div>
+</form>
