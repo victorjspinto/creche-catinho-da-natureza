@@ -2,11 +2,8 @@ import { ui } from 'angular';
 
 class StudentListController {
 
-    public helloWorld:String = "Ola Mundo";
-
-    public students = [
-    ]
-
+    public students = [];
+    
     constructor() {
         let x = 0;
         while (x < 100) {
