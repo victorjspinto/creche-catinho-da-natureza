@@ -1,11 +1,6 @@
 <md-content layout-fill layout-padding class="md-default-theme">
-    <md-card>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">Dados Pessoais</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Aluno">
             <form>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm="30">
@@ -81,16 +76,9 @@
                     </md-input-container>
                 </div>
             </form>
-        </md-card-content>
-    </md-card>
-    <div layout-gt-sm="row">
-        <md-card flex-gt-sm="50">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Endereço</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
+        </md-tab>
+        <md-tab label="Endereço">
+            <form>
                 <div layout-gt-sm="row">
                     <md-input-container flex-gt-sm="60">
                         <label>Endereço</label>
@@ -125,26 +113,12 @@
                         <input >
                     </md-input-container>
                 </div>
-            </md-card-content>
-        </md-card>
-        <md-card flex-gt-sm="50">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Autorizados a retirar a criança</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <student-responsible></student-responsible>
-            </md-card-content>
-        </md-card>
-    </div>
-     <md-card>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">Escola</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
+            </form>
+        </md-tab>
+        <md-tab label="Autorizados a retirnar">
+            <student-responsible></student-responsible>
+        </md-tab>
+        <md-tab label="Escola">
             <form>
                 <div layout-gt-sm="row">
                     <md-input-container flex-gt-sm="40">
@@ -181,28 +155,15 @@
                     </md-input-container>
                 </div>
             </form>
-        </md-card-content>
-     </md-card>
-    
-    <md-card>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">Dados do Pai</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
+        </md-tab>
+        <md-tab label="Pai">
             <student-parent></student-parent>
-        </md-card-content>
-    </md-card>
-
-    <md-card>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">Dados do Irmão</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
+        </md-tab>
+        <md-tab label="Mãe">
+            <student-parent></student-parent>
+        </md-tab>
+        <md-tab label="Irmãos">
             <student-brothers></student-brothers>
-        </md-card-content>
-    </md-card>
+        </md-tab>
+    </md-tabs>
 </md-content>
