@@ -1,5 +1,7 @@
 import { ui } from 'angular';
 
+
+
 class StudentListController {
 
     public students = [];

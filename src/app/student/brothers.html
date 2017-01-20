@@ -6,14 +6,6 @@
                 <input ng-model="ctrl.selected.name">
             </md-input-container>
             <md-input-container flex>
-                <label>Data de Nascimento</label>
-                <md-input-container>
-                    <md-datepicker ng-model="ctrl.selected.birthdate" md-placeholder="Data de Nascimento"></md-datepicker>        
-                </md-input-container>
-            </md-input-container>
-        </div>
-        <div layout="row">
-            <md-input-container flex>
                 <label>Raça</label>
                 <md-select ng-model="ctrl.selected.race">
                     <md-option ng-disabled="true"><em>Selecione</em></md-option>
@@ -25,26 +17,32 @@
                 </md-select>
             </md-input-container>
             <md-input-container flex>
+                <label>Religião</label>
+                <input ng-model="ctrl.selected.religion">
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+            <md-input-container flex>
                 <md-radio-group ng-model="ctrl.selected.gender">
                     <md-radio-button value="Masculino">Masculino</md-radio-button>
                     <md-radio-button value="Feminino">Feminino</md-radio-button>
                 </md-radio-group>
             </md-input-container>
-            </md-input-container>
             <md-input-container flex>
-                <label>Religião</label>
-                <input ng-model="ctrl.selected.religion">
+                <md-input-container>
+                    <md-datepicker ng-model="ctrl.selected.birthdate" md-placeholder="Data de Nascimento"></md-datepicker>        
+                </md-input-container>
             </md-input-container>
         </div>
+
         <div layout="row">
-            <md-input-container flex>
+            <md-input-container flex="20">
                 <md-checkbox ng-model="ctrl.selected.works" aria-label="Trabalha?">
                     Trabalha?
                 </md-checkbox>
             </md-input-container>
-        </div>
-        <div layout="row">
-            <md-input-container flex>
+            <md-input-container flex="30">
                 <md-checkbox ng-model="ctrl.selected.liveWithStudent" aria-label="Mora com o aluno?">
                     Mora com o Aluno?
                 </md-checkbox>

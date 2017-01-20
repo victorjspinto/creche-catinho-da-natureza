@@ -36,8 +36,9 @@
                         <label>Nome</label>
                         <input >
                     </md-input-container>
-                    <md-input-container>
-                        <md-datepicker ng-model="myDate" md-placeholder="Data de Nascimento"></md-datepicker>        
+                    <md-input-container flex="40">
+                        <label>Data de Nascimento</label>
+                        <md-datepicker ng-model="myDate"></md-datepicker>        
                     </md-input-container>
                 </div>
 
@@ -61,33 +62,22 @@
                         <label>Telefone</label>
                         <input >
                     </md-input-container>
+                    <md-input-container flex-gt-sm="20">
+                        <label>Raça</label>
+                        <md-select ng-model="ctrl.asd">
+                            <md-option ng-disabled="true"><em>Selecione</em></md-option>
+                            <md-option ng-value="Branco">Branco</md-option>
+                            <md-option ng-value="Negro">Negro</md-option>
+                            <md-option ng-value="Pardo">Pardo</md-option>
+                            <md-option ng-value="Amarelo">Amarelo</md-option>
+                            <md-option ng-value="Indígena">Indígena</md-option>
+                        </md-select>
+                    </md-input-container>
                     <md-input-container flex-offset-gt-sm="20" flex>
-                        <md-radio-group>
+                        <md-radio-group layout="row">
                             <md-radio-button value="Masculino">Masculino</md-radio-button>
                             <md-radio-button value="Feminino">Feminino</md-radio-button>
                         </md-radio-group>
-                    </md-input-container>
-                </div>
-                
-
-                <div layout-gt-sm="row">
-                    <md-input-container flex>
-                        <label>Nome do Pai</label>
-                        <input >
-                    </md-input-container>
-                    <md-input-container flex-gt-sm="30">
-                        <label>Telefone do Pai</label>
-                        <input >
-                    </md-input-container>
-                </div>
-                <div layout-gt-sm="row">
-                    <md-input-container flex>
-                        <label>Nome da Mãe</label>
-                        <input >
-                    </md-input-container>
-                    <md-input-container flex-gt-sm="30">
-                        <label>Telefone da Mãe</label>
-                        <input >
                     </md-input-container>
                 </div>
             </form>
