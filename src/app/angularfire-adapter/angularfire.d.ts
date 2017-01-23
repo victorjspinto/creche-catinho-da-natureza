@@ -7,4 +7,8 @@ declare namespace angularfire {
         $getAuth():firebase.User
         $requireSignIn(): ng.IPromise<firebase.User>;
     }
+
+    interface AngularFireArray<T> extends Array<T> {
+        $loaded():ng.IPromise<any>;
+    }
 }
