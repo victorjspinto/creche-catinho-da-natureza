@@ -1,21 +1,22 @@
 import {AbstractCrudService, AbstractEntity} from './../angularfire-adapter/abstractCrudService';
 
-export class PeriodService extends AbstractCrudService<Period> {
+export class RaceService extends AbstractCrudService<Race> {
 
     constructor($firebaseObject, $firebaseArray) {
-        super('period', $firebaseObject, $firebaseArray);
+        super('race', $firebaseObject, $firebaseArray);
     }
 
     generateIdentifier(entity:any):String {
         return entity.label;
     }
+
 }
 
-export class Period extends AbstractEntity {
+export class Race extends AbstractEntity {
     public label:String;
     public value:String;
 }
 
-export default angular.module('app.miscelaneous.period', [])
-    .service('periodService', PeriodService)
+export default angular.module('app.miscelaneous.race', [])
+    .service('raceService', RaceService)
     .name;

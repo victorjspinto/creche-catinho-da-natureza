@@ -1,6 +1,5 @@
 import { ui, material } from 'angular';
-import { ClassService } from './class.service'
-import { Class } from './class'
+import { ClassService, Class } from './class.service'
 
 class ClassListController {
 
@@ -28,7 +27,7 @@ class ClassListController {
 
 export default angular.module('app.class.list', [])
     .component('classList', {
-        template: require('./class-list.html'),
+        template: require('./classes-list.html'),
         controller: ClassListController,
         controllerAs: 'ctrl'
     })

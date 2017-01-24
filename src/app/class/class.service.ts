@@ -1,31 +1,22 @@
-import * as firebase from 'firebase';
-import { Class } from './class'
+import { AbstractCrudService , AbstractEntity } from './../angularfire-adapter/abstractCrudService';
 
-export class ClassService {
+export class ClassService extends AbstractCrudService <Class> {
 
-    constructor(private $firebaseObject, private $firebaseArray) {
-
+    constructor($firebaseObject, $firebaseArray) {
+        super('classes', $firebaseObject, $firebaseArray);
     }
 
-    public save(classDetail:Class):ng.IPromise<void> {
-        classDetail.$id = classDetail.name + '-' + classDetail.shift + '-' + classDetail.period;
-        classDetail.$id = classDetail.$id.replace(/\s/g,'');
-        var ref = firebase.database().ref('classes/' + classDetail.$id);
-        var firebaseObj = this.$firebaseObject(ref);
-        angular.copy(classDetail, firebaseObj);
-        return firebaseObj.$save();
+    generateIdentifier(entity:Class):String {
+        var identifier = entity.name + '-' + entity.period;
+        return identifier;
     }
 
-    public find(): angularfire.AngularFireArray<Class>{
-        var ref = firebase.database().ref('classes/');
-        return this.$firebaseArray(ref);
-    }
+}
 
-    public remove(classe:Class) :ng.IPromise<void> {
-        var ref = firebase.database().ref('classes/' + classe.$id);
-        return this.$firebaseObject(ref).$remove();
-    }
-
+export class Class extends AbstractEntity {
+    public name:String;
+    public shift:String;
+    public period:String;
 }
 
 export default angular.module('app.class.service', [])

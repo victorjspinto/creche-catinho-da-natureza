@@ -1,20 +1,19 @@
-import * as firebase from 'firebase';
+import {AbstractCrudService, AbstractEntity} from './../angularfire-adapter/abstractCrudService';
 
-export class ShiftService {
+export class ShiftService extends AbstractCrudService<Shift> {
 
-    constructor(private $firebaseObject, private $firebaseArray) {
-
+    constructor($firebaseObject, $firebaseArray) {
+        super('shift', $firebaseObject, $firebaseArray);
     }
 
-    public save(classDetail:any):ng.IPromise<void> {
-        var ref = firebase.database().ref('shit/' + classDetail.$id);
-        return this.$firebaseObject.$save(classDetail);
+    generateIdentifier(entity:any):String {
+        return entity.label;
     }
+}
 
-    public find(): angularfire.AngularFireArray<any>{
-        var ref = firebase.database().ref('shift/');
-        return this.$firebaseArray(ref);
-    }
+export class Shift extends AbstractEntity {
+    public label:String;
+    public value:String;
 }
 
 export default angular.module('app.miscelaneous.shift', [])

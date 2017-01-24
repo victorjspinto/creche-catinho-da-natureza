@@ -1,12 +1,11 @@
-import { ClassService } from './class.service'
-import { Class } from './class'
+import { ClassService, Class } from './class.service'
 import { ui } from 'angular'
 import { PeriodService } from './../miscelaneous/period.service'
 import { ShiftService } from './../miscelaneous/shift.service'
 
 class NewClassController {
     
-    public newClass: Class = {};
+    public newClass: Class = new Class();
 
     public periods:any;
     public shifts:any;
@@ -24,8 +23,6 @@ class NewClassController {
     }
 
     public save() {
-        this.$log.info("Savind New Class", this.newClass);
-        
         this.classService.save(this.newClass)
             .then(() => {
                 this.$state.go('classes');

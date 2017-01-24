@@ -21,8 +21,8 @@
                     </md-icon>
                 </md-button>
 
-                <div layout-gt-sm="row" layout-sm="column">
-                    <md-input-container class="md-block" flex-gt-sm="40" flex-sm="100">
+                <div layout-gt-sm="row" layout="column">
+                    <md-input-container class="md-block" flex-gt-sm="40" flex="100">
                         <label>Nome</label>
                         <input  name="name" ng-model="ctrl.newClass.name"
                                 type="text"
@@ -35,7 +35,7 @@
                         </div>
                     </md-input-container>
 
-                    <md-input-container flex-gt-sm="40" flex-sm="100">
+                    <md-input-container flex-gt-sm="40" flex="100">
                         <label>Turno</label>
                         <md-select name="shift" ng-model="ctrl.newClass.shift" required>
                             <md-option ng-repeat="shift in ctrl.shifts" ng-value="shift.value">{{ shift.label }}</md-option>
@@ -44,7 +44,7 @@
                             <div ng-message="required">O turno é obrigatório.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container flex-gt-sm="20" flex-sm="100">
+                    <md-input-container flex-gt-sm="20" flex="100">
                         <label>Período</label>
                         <md-select name="period" ng-model="ctrl.newClass.period" required>
                             <md-option ng-repeat="period in ctrl.periods" ng-value="period.value">{{ period.label }}</md-option>
