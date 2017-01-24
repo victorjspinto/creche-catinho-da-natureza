@@ -1,4 +1,4 @@
-import { ui } from 'angular';
+import { ui, material } from 'angular';
 import { ClassService } from './class.service'
 import { Class } from './class'
 
@@ -6,12 +6,22 @@ class ClassListController {
 
     public classes:angularfire.AngularFireArray<Class>
 
-    constructor(private classService:ClassService) {
+    constructor(private classService:ClassService,
+                private $mdDialog:material.IDialogService) {
         this.classes = classService.find();
     }
 
     public remove(classe) {
-        this.classService.remove(classe);
+        var confirm = this.$mdDialog.confirm()
+            .title('Remover Turma')
+            .textContent('Deseja realmente remover a turma ' + classe.name)
+            .ok('Confirmar')
+            .cancel('Cancelar');
+
+        this.$mdDialog.show(confirm)
+            .then(() => {
+                this.classService.remove(classe);
+            })        
     }
     
 }
