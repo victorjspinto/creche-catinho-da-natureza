@@ -14,12 +14,4 @@ firebase.initializeApp(config);
 export default angular.module('firebase-adapter', ['firebase', routeModule.name])
     .factory('angularFireAuth', ($firebaseAuth:any) => {
         return $firebaseAuth(firebase.auth());
-    })
-    .run((angularFireAuth:angularfire.AngularFireAuth, $log:ng.ILogService) => {
-        angularFireAuth.$signInWithEmailAndPassword('victorjspinto@gmail.com', 'viktorjose')
-            .then((user) => {
-                $log.log(user);
-            }, (error) => {
-                $log.error(error);
-            });
     }).name;

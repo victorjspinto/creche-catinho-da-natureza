@@ -34,7 +34,7 @@
       <md-divider></md-divider>
       <md-subheader>Usuario</md-subheader>
 
-      <md-list-item ng-click="null">
+      <md-list-item ng-controller="LogoutController as logoutCtrl" ng-click="logoutCtrl.logout()">
         <md-icon md-font-icon="Material Icons"
                  aria-label="Editar">
           exit_to_app

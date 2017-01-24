@@ -6,7 +6,6 @@ class AppController {
   }
 
   public toggleSidenav(menuId:string) {
-    console.log('oi!!!');
     this.$mdSidenav('left').toggle();
   }
 }
