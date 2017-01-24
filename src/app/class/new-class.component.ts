@@ -24,7 +24,7 @@ class NewClassController {
     }
 
     public save() {
-        this.$log.info("Attempt to save class with value", this.newClass);
+        this.$log.info("Savind New Class", this.newClass);
         
         this.classService.save(this.newClass)
             .then(() => {
