@@ -21,6 +21,11 @@ export class ClassService {
         return this.$firebaseArray(ref);
     }
 
+    public remove(classe:Class) :ng.IPromise<void> {
+        var ref = firebase.database().ref('classes/' + classe.$id);
+        return this.$firebaseObject(ref).$remove();
+    }
+
 }
 
 export default angular.module('app.class.service', [])

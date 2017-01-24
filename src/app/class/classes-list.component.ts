@@ -9,6 +9,10 @@ class ClassListController {
     constructor(private classService:ClassService) {
         this.classes = classService.find();
     }
+
+    public remove(classe) {
+        this.classService.remove(classe);
+    }
     
 }
 
