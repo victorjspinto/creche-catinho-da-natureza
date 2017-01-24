@@ -46,21 +46,13 @@
                     </md-input-container>
                     <md-input-container flex-gt-sm="20" flex-sm="100">
                         <label>Período</label>
-                        <md-select name="period" ng-model="ctrl.newClass.period">
-                            <md-option ng-repeat="period in periods" ng-value="period.value">{{ period.label }}</md-option>
+                        <md-select name="period" ng-model="ctrl.newClass.period" required>
+                            <md-option ng-repeat="period in ctrl.periods" ng-value="period.value">{{ period.label }}</md-option>
                         </md-select>
                         <div ng-messages="newClassForm.period.$error" ng-if="newClassForm.$submitted || newClassForm.period.$touched">
                             <div ng-message="required">O período é obrigatório.</div>
                         </div>
                     </md-input-container>
-                </div>
-
-                <div layout-gt-sm="row" layout-sm="column">
-                    {{ ctrl.periods | json }}
-                </div>
-                
-                <div layout-gt-sm="row" layout-sm="column">
-                    {{ ctrl.shifts | json }}
                 </div>
             </form>
 
