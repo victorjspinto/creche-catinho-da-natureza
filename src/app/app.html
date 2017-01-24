@@ -1,10 +1,19 @@
-<md-toolbar>
-  <!--<h1>Centro Educacional Cantinho da Natureza</h1>-->
+<md-toolbar layout="row" layout-align="start center">
+  <md-button ng-click="ctrl.toggleSidenav()" hide-gt-sm class="md-icon-button">
+     <md-icon md-font-icon="Material Icons"
+              ng-click="null" 
+              aria-label="Cadastrar" 
+              class="md-secondary md-hue-3" >
+              menu
+    </md-icon>
+  </md-button>
+
+  <h1 class="md-toolbar-tools" layout-align-gt-sm="center">Creche</h1>
 </md-toolbar>
 
 <div class="container" layout="row" flex>
 
-  <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp">
+  <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp" md-component-id="left">
     <md-list>
       <md-list-item ui-sref="students">
         <md-icon md-font-icon="Material Icons"

@@ -23,18 +23,4 @@ export default angular
       var $state = $injector.get('$state');
       $state.go('students')
     });
-  })
-  .run(($firebaseObject, $log:ng.ILogService) => {
-    var identifier = 'victorjspinto'
-    var ref = firebase.database().ref('students/' + identifier);
-    var studentInstance = $firebaseObject(ref);
-    studentInstance.name = 'Victor Jose Silva Pinto';
-    studentInstance.$save()
-      .then((ref) => {
-        $log.info(ref);
-        $log.info(studentInstance);
-
-      }, (error) => {
-        $log.error(error);
-      })
   });

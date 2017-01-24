@@ -1,14 +1,19 @@
+import { material } from 'angular'
+
 class AppController {
-  public url:String;
-  
-  constructor($log:ng.ILogService) {
-    this.url = 'https://github.com/preboot/angular-webpack';
-    $log.info("Tipagem funcionou!");
+
+  constructor(private $mdSidenav:material.ISidenavService) {
+  }
+
+  public toggleSidenav(menuId:string) {
+    console.log('oi!!!');
+    this.$mdSidenav('left').toggle();
   }
 }
 
 export default angular.module('app.component', [])
     .component('app', {
         template: require('./app.html'),
-        controller: AppController
+        controller: AppController,
+        controllerAs: 'ctrl'
     }).name

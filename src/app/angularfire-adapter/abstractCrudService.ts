@@ -13,7 +13,7 @@ export abstract class AbstractCrudService<T extends AbstractEntity> {
     public save(newEntity:any):ng.IPromise<void> {
         var identifier = this.generateIdentifier(newEntity);
         // remove accents and spaces
-        identifier = removeDiacritics(identifier).replace(/\s/g,'');
+        identifier = removeDiacritics(identifier).replace(/\s/g,'').toLowerCase();
         var ref = firebase.database().ref(this.context + '/' + identifier);
         
         var firebaseObj = this.$firebaseObject(ref);
