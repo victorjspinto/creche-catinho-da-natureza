@@ -1,0 +1,61 @@
+<md-content layout="row" layout-align="center start" layout-fill layout-padding class="md-default-theme">
+    <md-card flex="90" class="md-card-expand">
+
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Turmas</span>
+                <span class="md-subhead">Cadastrar nova turma</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+
+            <form name="newClassForm" novalidate ng-submit="newClassForm.$valid && ctrl.save()">
+                <md-button  class="md-fab md-fab-bottom-right" 
+                            type="submit"
+                            aria-label="Salvar" ng-click="null">
+                    <md-icon md-font-icon="Material Icons"
+                                ng-click="null" 
+                                aria-label="Cadastrar" 
+                                class="md-secondary md-hue-3" >
+                                save
+                    </md-icon>
+                </md-button>
+
+                <div layout-gt-sm="row" layout-sm="column">
+                    <md-input-container class="md-block" flex-gt-sm="40" flex-sm="100">
+                        <label>Nome</label>
+                        <input  name="name" ng-model="ctrl.newClass.name"
+                                type="text"
+                                required ng-minlength="5" ng-maxlength="100">
+            
+                        <div ng-messages="newClassForm.name.$error" ng-if="newClassForm.$submitted || newClassForm.name.$touched">
+                            <div ng-message="required">O Nome é obrigatório.</div>
+                            <div ng-message="minlength">O Nome precisa conter pelo menos 5 caracteres.</div>
+                            <div ng-message="maxlength">O Nome precisa não pode conter mais de 100 caracteres.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex-gt-sm="40" flex-sm="100">
+                        <label>Turno</label>
+                        <md-select name="shift" ng-model="ctrl.newClass.shift" required>
+                            <md-option ng-repeat="shift in ctrl.shifts" ng-value="shift.value">{{ shift.label }}</md-option>
+                        </md-select>
+                        <div ng-messages="newClassForm.shift.$error" ng-if="newClassForm.$submitted || newClassForm.shift.$touched">
+                            <div ng-message="required">O turno é obrigatório.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="20" flex-sm="100">
+                        <label>Período</label>
+                        <md-select name="period" ng-model="ctrl.newClass.period" required>
+                            <md-option ng-repeat="period in ctrl.periods" ng-value="period.value">{{ period.label }}</md-option>
+                        </md-select>
+                        <div ng-messages="newClassForm.period.$error" ng-if="newClassForm.$submitted || newClassForm.period.$touched">
+                            <div ng-message="required">O período é obrigatório.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </form>
+
+        </md-card-content>
+    </md-card>
+</md-content>
