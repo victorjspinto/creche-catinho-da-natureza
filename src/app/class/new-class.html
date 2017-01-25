@@ -1,3 +1,14 @@
+<md-button  class="md-fab md-fab-bottom-right" 
+            type="submit"
+            aria-label="Salvar" ng-click="newClassForm.$submit()">
+    <md-icon md-font-icon="Material Icons"
+                ng-click="null" 
+                aria-label="Cadastrar" 
+                class="md-secondary md-hue-3" >
+                save
+    </md-icon>
+</md-button>
+
 <md-content layout="row" layout-align="center start" layout-fill layout-padding class="md-default-theme">
     <md-card flex="90" class="md-card-expand">
 
@@ -10,17 +21,6 @@
         <md-card-content>
 
             <form name="newClassForm" novalidate ng-submit="newClassForm.$valid && ctrl.save()">
-                <md-button  class="md-fab md-fab-bottom-right" 
-                            type="submit"
-                            aria-label="Salvar" ng-click="null">
-                    <md-icon md-font-icon="Material Icons"
-                                ng-click="null" 
-                                aria-label="Cadastrar" 
-                                class="md-secondary md-hue-3" >
-                                save
-                    </md-icon>
-                </md-button>
-
                 <div layout-gt-sm="row" layout="column">
                     <md-input-container class="md-block" flex-gt-sm="40" flex="100">
                         <label>Nome</label>
