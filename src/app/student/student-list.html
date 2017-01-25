@@ -1,15 +1,16 @@
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="null" ui-sref="newStudent">
+    <md-icon md-font-icon="Material Icons"
+                ng-click="null" 
+                aria-label="Cadastrar" 
+                class="md-secondary md-hue-3" >
+                add
+    </md-icon>
+</md-button>
+
 <md-content layout="row" layout-align="center start" layout-fill layout-padding  class="md-default-theme">
-    <md-card flex-gt-sm="90" flex-gt-md="80" class="md-card-expand">
-        <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="null" ui-sref="newStudent">
-            <md-icon md-font-icon="Material Icons"
-                        ng-click="null" 
-                        aria-label="Cadastrar" 
-                        class="md-secondary md-hue-3" >
-                        add
-            </md-icon>
-        </md-button>
+    <md-card flex="90" flex-gt-md="80" class="md-card-expand">
         <md-card-content>
-            <h2>Alunos</h2>
+            <h2 class="md-title inset">Alunos</h2>
             <md-list>
                 <md-list-item class="md-2-line" ng-repeat="student in ctrl.students" ng-click="null">
                     <img ng-src="{{student.photo}}" class="md-avatar" alt="{{student.name}}"/>
