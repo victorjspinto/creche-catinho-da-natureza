@@ -10,7 +10,7 @@ export abstract class AbstractCrudService<T extends AbstractEntity> {
 
     }
 
-    public save(newEntity:any):ng.IPromise<void> {
+    public save(newEntity:T):ng.IPromise<void> {
         var identifier = this.generateIdentifier(newEntity);
         // remove accents and spaces
         identifier = removeDiacritics(identifier).replace(/\s/g,'').toLowerCase();
