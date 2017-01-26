@@ -1,78 +1,131 @@
-<md-content layout-fill layout-padding class="md-default-theme">
+<md-button  class="md-fab md-fab-bottom-right" 
+            type="submit"
+            aria-label="Salvar" ng-click="studentForm.$submit()">
+    <md-icon md-font-icon="Material Icons"
+                ng-click="null" 
+                aria-label="Cadastrar" 
+                class="md-secondary md-hue-3" >
+                save
+    </md-icon>
+</md-button>
+<md-content layout-fill layout-padding>
+    <form name="studentForm" novalidate ng-submit="studentForm.$valid && ctrl.save()">
     <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="Aluno">
             <form>
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm="30">
-                        <md-radio-group layout="row">
-                            <md-radio-button value="Creche">Creche</md-radio-button>
-                            <md-radio-button value="Prosseguir">Prosseguir</md-radio-button>
-                        </md-radio-group>
-                    </md-input-container>
-
+                <div layout-gt-sm="row" layout="column">
                     <md-input-container flex-gt-sm="30">
-                        <label>Turma</label>
-                        <input >
-                    </md-input-container>
-
-                    <md-input-container flex-gt-sm="20">
-                        <label>Ano</label>
-                        <input >
+                        <md-radio-group layout="row" 
+                                        name="type" ng-model="ctrl.student.type" required>
+                            <md-radio-button value="0">Creche</md-radio-button>
+                            <md-radio-button value="1">Prosseguir</md-radio-button>
+                        </md-radio-group>
+                        <div ng-messages="studentForm.type.$error" ng-if="studentForm.$submitted || studentForm.type.$touched">
+                            <div ng-message="required">Informar a modalidade é obrigatório.</div>
+                        </div>
                     </md-input-container>
 
                     <md-input-container flex-gt-sm="20">
                         <label>Matrícula</label>
-                        <input >
+                        <input  name="registrationNumber" ng-model="ctrl.student.registrationNumber"
+                                type="text"
+                                required>
+                        <div ng-messages="studentForm.registrationNumber.$error" ng-if="studentForm.$submitted || studentForm.registrationNumber.$touched">
+                            <div ng-message="required">A matricula é obrigatória.</div>
+                        </div>
                     </md-input-container>
                 </div>
 
-                <div layout-gt-sm="row">
-                    <md-input-container flex>
+                <div layout-gt-sm="row" layout="column">
+                    <md-input-container flex flex-sm="100">
                         <label>Nome</label>
-                        <input >
+                        <input  name="name" ng-model="ctrl.student.name"
+                                type="text"
+                                required ng-minlength="10" ng-maxlength="100"
+                                >
+                        <div ng-messages="studentForm.name.$error" ng-if="studentForm.$submitted || studentForm.name.$touched">
+                            <div ng-message="required">O Nome é obrigatório.</div>
+                            <div ng-message="minlength">O Nome precisa conter pelo menos 10 caracteres.</div>
+                            <div ng-message="maxlength">O Nome precisa não pode conter mais de 100 caracteres.</div>
+                        </div>
                     </md-input-container>
-                    <md-input-container flex="40">
+                    <md-input-container>
                         <label>Data de Nascimento</label>
-                        <md-datepicker ng-model="myDate"></md-datepicker>        
+                        <md-datepicker  name="birthDate" ng-model="ctrl.student.birthDate" 
+                                        md-max-date="ctrl.maxBirthDay" md-open-on-focus
+                                        required></md-datepicker>      
+                        <div ng-messages="studentForm.birthDate.$error" ng-if="studentForm.$submitted || studentForm.birthDate.$touched">
+                            <div ng-message="required">A data de nascimento é obrigatória.</div>
+                        </div>
                     </md-input-container>
                 </div>
 
-                <div layout-gt-sm="row">
-                    <md-input-container flex>
+                <div layout-gt-sm="row" layout="column">
+                    <md-input-container flex="100" flex-gt-md="33">
                         <label>Nacionalidade</label>
-                        <input >
+                        <input  name="citizenship" ng-model="ctrl.student.citizenship"
+                                type="text"
+                                required ng-minlength="5" ng-maxlength="100">
+                        <div ng-messages="studentForm.citizenship.$error" ng-if="studentForm.$submitted || studentForm.citizenship.$touched">
+                            <div ng-message="required">A nacionalidade é obrigatória.</div>
+                            <div ng-message="minlength">A nacionalidade precisa conter pelo menos 5 caracteres.</div>
+                            <div ng-message="maxlength">A nacionalidade precisa não pode conter mais de 100 caracteres.</div>
+                        </div>
                     </md-input-container>
-                    <md-input-container>
-                        <label>Naturalidade</label>
-                        <input >
+                    <md-input-container flex="100" flex-gt-md="33">
+                        <label>Natural de</label>
+                        <input name="cityOfBirth" ng-model="ctrl.student.cityOfBirth"
+                                type="text"
+                                required ng-minlength="5" ng-maxlength="100">
+                        <div ng-messages="studentForm.citizenship.$error" ng-if="studentForm.$submitted || studentForm.citizenship.$touched">
+                            <div ng-message="required">A cidade de nascimento é obrigatória.</div>
+                            <div ng-message="minlength">A cidade de nascimento precisa conter pelo menos 5 caracteres.</div>
+                            <div ng-message="maxlength">A cidade de nascimento precisa não pode conter mais de 100 caracteres.</div>
+                        </div>
                     </md-input-container>
-                    <md-input-container>
+                    <md-input-container flex="100" flex-gt-md="33">
                         <label>Religião</label>
-                        <input >
+                        <input name="religion" ng-model="ctrl.student.religion"
+                                type="text"
+                                required ng-minlength="5" ng-maxlength="100">
+                        <div ng-messages="studentForm.religion.$error" ng-if="studentForm.$submitted || studentForm.religion.$touched">
+                            <div ng-message="required">A religião é obrigatória.</div>
+                            <div ng-message="minlength">A religião precisa conter pelo menos 5 caracteres.</div>
+                            <div ng-message="maxlength">A religião precisa não pode conter mais de 100 caracteres.</div>
+                        </div>
                     </md-input-container>
                 </div>
 
-                <div layout-gt-sm="row">
-                        <md-input-container flex-gt-sm="30">
-                        <label>Telefone</label>
-                        <input >
+                <div layout-gt-sm="row" layout="column">
+                        <md-input-container flex-gt-sm="30" flex="100">
+                        <label>Telefone Residencial</label>
+                        <input  name="telephone" ng-model="ctrl.student.telephone"
+                                required>
+                        <div ng-messages="studentForm.telephone.$error" ng-if="studentForm.$submitted || studentForm.telephone.$touched">
+                            <div ng-message="required">o Telefone Residencial é obrigatória.</div>
+                        </div>
                     </md-input-container>
-                    <md-input-container flex-gt-sm="20">
+                    <md-input-container flex-gt-sm="20" flex="100">
                         <label>Raça</label>
-                        <md-select ng-model="ctrl.asd">
+                        <md-select  name="race" ng-model="ctrl.student.race"
+                                    required>
                             <md-option ng-disabled="true"><em>Selecione</em></md-option>
-                            <md-option ng-value="Branco">Branco</md-option>
-                            <md-option ng-value="Negro">Negro</md-option>
-                            <md-option ng-value="Pardo">Pardo</md-option>
-                            <md-option ng-value="Amarelo">Amarelo</md-option>
-                            <md-option ng-value="Indígena">Indígena</md-option>
+                            <md-option ng-repeat="race in ctrl.races" ng-value="race.value">{{ race.label }}</md-option>
                         </md-select>
+                        <div ng-messages="studentForm.race.$error" ng-if="studentForm.$submitted || studentForm.race.$touched">
+                            <div ng-message="required">Informar a raça é obrigatório.</div>
+                        </div>
                     </md-input-container>
-                    <md-input-container flex-offset-gt-sm="20" flex>
-                        <md-radio-group layout="row">
-                            <md-radio-button value="Masculino">Masculino</md-radio-button>
-                            <md-radio-button value="Feminino">Feminino</md-radio-button>
+                    <md-input-container flex-offset-gt-sm="20" flex="100" flex-gt-sm="30">
+                        <md-radio-group layout="row"
+                                        name="gender" ng-model="ctrl.student.gender"
+                                        required>
+                            <md-radio-button value="1">Masculino</md-radio-button>
+                            <md-radio-button value="0">Feminino</md-radio-button>
                         </md-radio-group>
+                        <div ng-messages="studentForm.gender.$error" ng-if="studentForm.$submitted || studentForm.gender.$touched">
+                            <div ng-message="required">Informar o sexo é obrigatório.</div>
+                        </div>
                     </md-input-container>
                 </div>
             </form>
@@ -137,9 +190,6 @@
                         <label>Turno</label>
                         <md-select ng-model="ctrl.teste">
                             <md-option ng-disabled="true"><em>Selecione</em></md-option>
-                            <md-option ng-value="Manhã">Manhã</md-option>
-                            <md-option ng-value="Tarde">Tarde</md-option>
-                            <md-option ng-value="Noite">Noite</md-option>
                         </md-select>
                     </md-input-container>
                 </div>
@@ -157,13 +207,14 @@
             </form>
         </md-tab>
         <md-tab label="Pai">
-            <student-parent></student-parent>
+            <!--<student-parent></student-parent>-->
         </md-tab>
         <md-tab label="Mãe">
-            <student-parent></student-parent>
+            <!--<student-parent></student-parent>-->
         </md-tab>
         <md-tab label="Irmãos">
-            <student-brothers></student-brothers>
+            <!--<student-brothers></student-brothers>-->
         </md-tab>
     </md-tabs>
+    </form>
 </md-content>
