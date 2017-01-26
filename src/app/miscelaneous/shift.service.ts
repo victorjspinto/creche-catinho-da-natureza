@@ -6,7 +6,7 @@ export class ShiftService extends AbstractCrudService<Shift> {
         super('shift', $firebaseObject, $firebaseArray);
     }
 
-    generateIdentifier(entity:any):String {
+    generateIdentifier(entity:Shift):String {
         return entity.label;
     }
 }
