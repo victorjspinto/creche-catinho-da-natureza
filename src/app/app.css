@@ -5,3 +5,9 @@ md-icon[md-font-icon="Material Icons"] {
 .md-card-expand {
   max-height: inherit !important;
 }
+
+
+/*alinha o radio button com o input ao lado, horizontalmente */
+md-radio-group._md.layout-row {
+  padding-top: 6px;
+}
