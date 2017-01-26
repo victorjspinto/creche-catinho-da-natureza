@@ -1,5 +1,7 @@
 <md-toolbar layout="row" layout-align="start center">
-  <md-button ng-click="ctrl.toggleSidenav()" hide-gt-sm class="md-icon-button">
+  <md-button  ng-click="ctrl.toggleSidenav()" 
+              hide-gt-sm class="md-icon-button"
+              ng-show="ctrl.canShowMenu">
      <md-icon md-font-icon="Material Icons"
               ng-click="null" 
               aria-label="Cadastrar" 
@@ -13,11 +15,12 @@
 
 <div class="container" layout="row" flex>
 
-  <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp" md-component-id="left">
+  <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp" md-component-id="left" 
+              ng-show="ctrl.canShowMenu">
     <md-list>
       <md-list-item ui-sref="students">
         <md-icon md-font-icon="Material Icons"
-                 aria-label="Editar">
+                 aria-label="Alunos">
           person
         </md-icon>
         <p>Aluno</p>
@@ -25,8 +28,8 @@
 
       <md-list-item ui-sref="classes">
         <md-icon md-font-icon="Material Icons"
-                 aria-label="Editar">
-          people
+                 aria-label="Turmas">
+          school
         </md-icon>
         <p>Turmas</p>
       </md-list-item>

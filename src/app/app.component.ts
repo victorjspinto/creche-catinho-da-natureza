@@ -2,7 +2,18 @@ import { material } from 'angular'
 
 class AppController {
 
-  constructor(private $mdSidenav:material.ISidenavService) {
+  public canShowMenu:Boolean;
+
+  constructor(
+      private $mdSidenav:material.ISidenavService,
+      private angularFireAuth:angularfire.AngularFireAuth
+      ) {
+    
+    this.canShowMenu = angularFireAuth.$getAuth() != null;
+    angularFireAuth.$onAuthStateChanged((user) => {
+      this.canShowMenu = user != null;
+    })
+
   }
 
   public toggleSidenav(menuId:string) {
