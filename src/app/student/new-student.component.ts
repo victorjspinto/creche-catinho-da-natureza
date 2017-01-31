@@ -15,9 +15,13 @@ class NewStudentController {
         private $log:ng.ILogService,
         private raceService:RaceService,
         private $state:ui.IStateService,
-        private studentService:StudentService
+        private studentService:StudentService,
+        private $stateParams:ui.IStateParamsService
     ) {
         this.races = raceService.find();
+        if($stateParams['studentId'] != null) {
+            this.student = studentService.findOne($stateParams['studentId']);
+        }
     }
 
     public save() {
@@ -25,6 +29,8 @@ class NewStudentController {
         this.studentService.save(this.student)
             .then(() => {
                 this.$state.go('students');
+            }, (error) => {
+                this.$log.error('Error While try to save', error);
             });
     }
 }
@@ -35,9 +41,19 @@ export default angular.module('app.student.new', [studentComponent])
         controller: NewStudentController,
         controllerAs: 'ctrl'
     })
-     .config(($stateProvider:ui.IStateProvider) => {
+    .config(($stateProvider:ui.IStateProvider) => {
         $stateProvider.state('newStudent', {
             url: '/students/new',
+            template: '<new-student layout="column" flex layout-fill></new-student>',
+            data: {
+                permissions: {
+                    only: 'isAuthorized',
+                    redirectTo: 'login'
+                }
+            }
+        })
+        .state('editStudent', {
+            url: '/students/:studentId',
             template: '<new-student layout="column" flex layout-fill></new-student>',
             data: {
                 permissions: {

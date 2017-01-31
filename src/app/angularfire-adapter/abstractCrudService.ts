@@ -11,6 +11,9 @@ export abstract class AbstractCrudService<T extends AbstractEntity> {
     }
 
     public save(newEntity:T):ng.IPromise<void> {
+        if((<any> newEntity).$id != null) {
+            return (<any> newEntity).$save();                
+        }
         var identifier = this.generateIdentifier(newEntity);
         // remove accents and spaces
         identifier = removeDiacritics(identifier).replace(/\s/g,'').toLowerCase();
@@ -20,6 +23,11 @@ export abstract class AbstractCrudService<T extends AbstractEntity> {
         angular.copy(newEntity, firebaseObj);
         firebaseObj.id = identifier;
         return firebaseObj.$save();
+    }
+
+    public findOne(identifier:String): T {
+        var ref = firebase.database().ref(this.context + '/' + identifier);
+        return this.$firebaseObject(ref);
     }
 
     public find(): angularfire.AngularFireArray<T>{

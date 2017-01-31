@@ -12,7 +12,7 @@
         <md-card-content>
             <h2 class="md-title inset">Alunos</h2>
             <md-list>
-                <md-list-item class="md-2-line" ng-repeat="student in ctrl.students" ng-click="null">
+                <md-list-item class="md-2-line" ng-repeat="student in ctrl.students" ui-sref="editStudent({ studentId: student.id })">
 
                     <img ng-if="student.photo" ng-src="{{student.photo}}" class="md-avatar" alt="{{student.name}}"/>
                     <md-icon ng-if="!student.photo" md-font-icon="Material Icons">face</md-icon>
