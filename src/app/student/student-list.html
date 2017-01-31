@@ -13,7 +13,10 @@
             <h2 class="md-title inset">Alunos</h2>
             <md-list>
                 <md-list-item class="md-2-line" ng-repeat="student in ctrl.students" ng-click="null">
-                    <img ng-src="{{student.photo}}" class="md-avatar" alt="{{student.name}}"/>
+
+                    <img ng-if="student.photo" ng-src="{{student.photo}}" class="md-avatar" alt="{{student.name}}"/>
+                    <md-icon ng-if="!student.photo" md-font-icon="Material Icons">face</md-icon>
+
                     <div class="md-list-item-text" layout="column">
                         <h4>{{student.name}}</h4>
                         <p>{{student.name}}</p>
@@ -23,6 +26,12 @@
                         aria-label="Editar" 
                         class="md-secondary md-hue-3" >
                         mode_edit
+                    </md-icon>
+                    <md-icon md-font-icon="Material Icons"
+                        ng-click="ctrl.remove(student)" 
+                        aria-label="Excluir" 
+                        class="md-secondary md-warn" >
+                        delete
                     </md-icon>
                 </md-list-item>
             </md-list>

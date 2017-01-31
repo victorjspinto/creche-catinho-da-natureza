@@ -1,22 +1,29 @@
-import { ui } from 'angular';
-
+import { ui, material } from 'angular';
+import { StudentService, Student } from './student.service'
 
 
 class StudentListController {
 
     public students = [];
     
-    constructor() {
-        let x = 0;
-        while (x < 100) {
-            this.students.push(
-            {
-                id: x,
-                name: 'Victor Jose Silva Pinto',
-                photo: 'https://placekitten.com/g/50/50'
-            });
-            x = x + 1;
-        }
+    constructor(
+        private studentService:StudentService,
+        private $mdDialog:material.IDialogService
+    ) {
+        this.students = studentService.find();
+    }
+
+    public remove(student) {
+        var confirm = this.$mdDialog.confirm()
+            .title('Remover Turma')
+            .textContent('Deseja realmente remover o aluno ' + student.name)
+            .ok('Confirmar')
+            .cancel('Cancelar');
+
+        this.$mdDialog.show(confirm)
+            .then(() => {
+                this.studentService.remove(student);
+            })        
     }
     
 }
