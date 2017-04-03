@@ -4,6 +4,7 @@ class LoginController {
 
     public username:String;
     public password:String;
+    public loginFailed:boolean = false;
 
     constructor(private $log:ng.ILogService, 
                 private angularFireAuth:angularfire.AngularFireAuth,
@@ -22,6 +23,7 @@ class LoginController {
                 this.$state.go('students');
             }, (cause) => {
                 this.$log.error("user login fail with cause", cause);
+                this.loginFailed = true;
             });
     }
 }
