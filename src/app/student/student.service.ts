@@ -25,6 +25,18 @@ export class Student extends AbstractEntity {
     public telephone:String;
     public race:String;
     public gender:Gender = Gender.Female;
+
+    public address:Address = new Address();
+}
+
+export class Address {
+    public street:String;
+    public number:String;
+    public complement:String;
+    public neighborhood:String;
+    public city:String;
+    public state:String;
+    public zipCode:String;
 }
 
 export enum Gender {
