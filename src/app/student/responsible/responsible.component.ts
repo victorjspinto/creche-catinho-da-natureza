@@ -3,24 +3,7 @@ class StudentResponsibleController {
     public state:String = 'List';
     private action:String;
     private selected:any;
-
-    public responsibles = [{
-        name: 'Victor Jose Silva Pinto',
-        age: 30,
-        telephone: 21865184989
-    },{
-        name: 'Victor Jose Silva Pinto',
-        age: 30,
-        telephone: 21865184989
-    },{
-        name: 'Victor Jose Silva Pinto',
-        age: 30,
-        telephone: 21865184989
-    },{
-        name: 'Victor Jose Silva Pinto',
-        age: 30,
-        telephone: 21865184989
-    }];
+    private responsibles:Array<Object>;
 
     public add() {
         this.state = 'Edit';
@@ -36,6 +19,7 @@ class StudentResponsibleController {
 
     public save() {
         if(this.action == 'New') {
+            this.responsibles = this.responsibles || [];
             this.responsibles.push(this.selected);
             this.selected = {};
         }
@@ -59,5 +43,8 @@ export default angular.module('app.student.responsible', [])
     .component('studentResponsible', {
         template: require('./responsible.html'),
         controller: StudentResponsibleController,
-        controllerAs: 'ctrl'
+        controllerAs: 'ctrl',
+        bindings: {
+            responsibles: '='
+        }
     }).name;
