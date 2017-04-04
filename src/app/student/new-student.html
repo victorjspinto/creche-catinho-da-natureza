@@ -176,19 +176,19 @@
                 <div layout-gt-sm="row">
                     <md-input-container flex-gt-sm="40">
                         <label>Nome da Escola</label>
-                        <input >
+                        <input name="schoolName" ng-model="ctrl.student.school.name">
                     </md-input-container>
                     <md-input-container flex-gt-sm="20">
                         <label>Telefone</label>
-                        <input >
+                        <input name="schoolTelephone" ng-model="ctrl.student.school.telephone">
                     </md-input-container>
                     <md-input-container flex-gt-sm="20">
                         <label>Série / Ano</label>
-                        <input >
+                        <input name="schoolGrade" ng-model="ctrl.student.school.grade">
                     </md-input-container>
                     <md-input-container flex-gt-sm="20">
                         <label>Turno</label>
-                        <md-select ng-model="ctrl.teste">
+                        <md-select name="schoolShift" ng-model="ctrl.student.school.shift">
                             <md-option ng-disabled="true"><em>Selecione</em></md-option>
                         </md-select>
                     </md-input-container>
@@ -197,20 +197,20 @@
                 <div layout-gt-sm="row">
                     <md-input-container flex>
                         <label>Nome da Professora</label>
-                        <input >
+                        <input name="schoolTeacherName" ng-model="ctrl.student.school.teacherName">
                     </md-input-container>
                     <md-input-container flex>
                         <label>Nome da Diretora</label>
-                        <input >
+                        <input name="schoolPrincipalName" ng-model="ctrl.student.school.principalName">
                     </md-input-container>
                 </div>
             </form>
         </md-tab>
         <md-tab label="Pai">
-            <!--<student-parent></student-parent>-->
+            <student-parent></student-parent>
         </md-tab>
         <md-tab label="Mãe">
-            <!--<student-parent></student-parent>-->
+            <student-parent></student-parent>
         </md-tab>
         <md-tab label="Irmãos">
             <!--<student-brothers></student-brothers>-->
