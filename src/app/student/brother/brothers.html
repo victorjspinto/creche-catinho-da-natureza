@@ -7,13 +7,9 @@
             </md-input-container>
             <md-input-container flex>
                 <label>Raça</label>
-                <md-select ng-model="ctrl.selected.race">
+                <md-select name="parentRace" ng-model="ctrl.selected.race">
                     <md-option ng-disabled="true"><em>Selecione</em></md-option>
-                    <md-option ng-value="Branco">Branco</md-option>
-                    <md-option ng-value="Negro">Negro</md-option>
-                    <md-option ng-value="Pardo">Pardo</md-option>
-                    <md-option ng-value="Amarelo">Amarelo</md-option>
-                    <md-option ng-value="Indígena">Indígena</md-option>
+                    <md-option ng-repeat="race in ctrl.races" ng-value="race.value">{{ race.label }}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container flex>
@@ -48,7 +44,7 @@
                 </md-checkbox>
             </md-input-container>
             <md-input-container flex>
-                <label>Profession</label>
+                <label>Profissão</label>
                 <input ng-model="ctrl.selected.profession">
             </md-input-container>
         </div>

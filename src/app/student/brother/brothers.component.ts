@@ -1,10 +1,20 @@
+import { RaceService, Race } from './../../miscelaneous/race.service'
+
 class BrothersController {
 
     public state:String = 'List';
     private action:String;
     private selected:any;
 
-    public brothers = [];
+    public races:Array<Race>;
+
+    constructor(
+        private raceService:RaceService,
+    ) {
+        this.races = raceService.find();
+    }
+
+    public brothers;
 
     public add() {
         this.state = 'Edit';
@@ -20,6 +30,7 @@ class BrothersController {
 
     public save() {
         if(this.action == 'New') {
+            this.brothers = this.brothers || [];
             this.brothers.push(this.selected);
             this.selected = {};
         }
@@ -43,5 +54,8 @@ export default angular.module('app.student.brothers', [])
     .component('studentBrothers', {
         template: require('./brothers.html'),
         controller: BrothersController,
-        controllerAs: 'ctrl'
+        controllerAs: 'ctrl',
+        bindings: {
+            brothers: "="
+        }
     }).name;

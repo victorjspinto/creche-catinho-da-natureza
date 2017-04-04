@@ -53,7 +53,7 @@
                         <label>Data de Nascimento</label>
                         <md-datepicker  name="birthDate" ng-model="ctrl.student.birthDate" 
                                         md-max-date="ctrl.maxBirthDay" md-open-on-focus
-                                        required></md-datepicker>      
+                                        ></md-datepicker>      
                         <div ng-messages="studentForm.birthDate.$error" ng-if="studentForm.$submitted || studentForm.birthDate.$touched">
                             <div ng-message="required">A data de nascimento é obrigatória.</div>
                         </div>
@@ -213,7 +213,7 @@
             <student-parent parent="ctrl.student.mother"></student-parent>
         </md-tab>
         <md-tab label="Irmãos">
-            <!--<student-brothers></student-brothers>-->
+            <student-brothers brothers="ctrl.student.brothers"></student-brothers>
         </md-tab>
     </md-tabs>
     </form>
