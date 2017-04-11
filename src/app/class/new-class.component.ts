@@ -16,10 +16,15 @@ class NewClassController {
         private $log:ng.ILogService,
         private periodService:PeriodService,
         private shiftService:ShiftService,
+        private $stateParams:ui.IStateParamsService
         ) {
         
         this.periods = periodService.find();
         this.shifts = shiftService.find();
+
+        if($stateParams['classId'] != null) {
+            this.newClass = classService.findOne($stateParams['classId']);
+        }
     }
 
     public save() {
@@ -46,6 +51,16 @@ export default angular.module('app.class.new', [])
                     redirectTo: 'login'
                 }
             }
-        });
+        })
+        .state('editClass', {
+            url: '/classes/:classId',
+            template: '<new-class layout="column" flex layout-fill></new-class>',
+            data: {
+                permissions: {
+                    only: 'isAuthorized',
+                    redirectTo: 'login'
+                }
+            }
+        });;
     })
     .name;
