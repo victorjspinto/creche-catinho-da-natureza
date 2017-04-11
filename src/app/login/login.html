@@ -4,6 +4,9 @@
             <form novalidate name="loginForm" ng-submit="loginForm.$valid && ctrl.login()">
                 <div layout="column">
                     <div layout="column" layout-align="center center">
+                          <img src="/img/logo.png" style="width: 150px;">
+                    </div>
+                    <div layout="column" layout-align="center center">
                         <h2>Login</h2>
                         <div ng-show="ctrl.loginFailed">
                             <h4 md-colors="{color: 'warn-500'}">Login ou senha informados inválidos</h4>
