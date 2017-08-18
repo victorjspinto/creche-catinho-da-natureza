@@ -1,43 +1,33 @@
 <md-toolbar layout="row" layout-align="start center">
   <md-button  ng-click="ctrl.toggleSidenav()" 
-              hide-gt-sm class="md-icon-button"
-              ng-show="ctrl.canShowMenu">
+              hide-gt-sm class="md-icon-button">
      <md-icon md-font-icon="Material Icons"
               ng-click="null" 
-              aria-label="Cadastrar" 
+              aria-label="Menu" 
               class="md-secondary md-hue-3" >
               menu
     </md-icon>
   </md-button>
 
-  <h1 class="md-toolbar-tools">Centro Educacional Cantinho da Natureza</h1>
+  <h1 class="md-toolbar-tools">SAC - Registro de Contatos</h1>
 </md-toolbar>
 
 <div class="container" layout="row" flex>
 
-  <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp" md-component-id="left" 
-              ng-show="ctrl.canShowMenu">
+  <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp" md-component-id="left">
     <md-list>
-      <md-list-item ui-sref="students">
+      <md-list-item ui-sref="contacts">
         <md-icon md-font-icon="Material Icons"
-                 aria-label="Alunos">
-          person
-        </md-icon>
-        <p>Aluno</p>
-      </md-list-item>
-
-      <md-list-item ui-sref="classes">
-        <md-icon md-font-icon="Material Icons"
-                 aria-label="Turmas">
+                 aria-label="Contatos">
           school
         </md-icon>
-        <p>Turmas</p>
+        <p>Contatos</p>
       </md-list-item>
 
       <md-divider></md-divider>
       <md-subheader>Usuario</md-subheader>
 
-      <md-list-item ng-controller="LogoutController as logoutCtrl" ng-click="logoutCtrl.logout()">
+      <md-list-item ng-click="null">
         <md-icon md-font-icon="Material Icons"
                  aria-label="Editar">
           exit_to_app

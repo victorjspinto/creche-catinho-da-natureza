@@ -1,0 +1,73 @@
+<md-button  class="md-fab md-fab-bottom-right" 
+            type="submit"
+            aria-label="Salvar" ng-click="newContactForm.$submit()">
+    <md-icon md-font-icon="Material Icons"
+                ng-click="null" 
+                aria-label="Cadastrar" 
+                class="md-secondary md-hue-3" >
+                save
+    </md-icon>
+</md-button>
+
+<md-content layout="row" layout-align="center start" layout-fill layout-padding class="md-default-theme">
+    <md-card flex="50" class="md-card-expand">
+
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Contatos</span>
+                <span class="md-subhead">Registre aqui um novo contato</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+
+            <form name="newContactForm" novalidate ng-submit="newContactForm.$valid && ctrl.save()">
+                <div layout-gt-sm="row" layout="column">
+                    <md-input-container flex-gt-sm="33" flex="100">
+                        <label>Tipo</label>
+                        <md-select name="type" ng-model="ctrl.newContact.type" required>
+                            <md-option ng-repeat="contactType in ctrl.contactTypes" ng-value="contactType.value">{{ contactType.label }}</md-option>
+                        </md-select>
+                        <div ng-messages="newContactForm.type.$error" ng-if="newContactForm.$submitted || newContactForm.type.$touched">
+                            <div ng-message="required">O tipo de contato é obrigatório.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="33" flex="100">
+                        <label>Motivo do Contato</label>
+                        <md-select name="reason" ng-model="ctrl.newClass.reason" required>
+                            <md-option ng-repeat="contactReason in ctrl.contactReasons" ng-value="contactReason.value">{{ contactReason.label }}</md-option>
+                        </md-select>
+                        <div ng-messages="newContactForm.reason.$error" ng-if="newContactForm.$submitted || newContactForm.reason.$touched">
+                            <div ng-message="required">O motivo do contato é obrigatório.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex-gt-sm="33" flex="100">
+                        <label>Estado</label>
+                        <md-select name="period" ng-model="ctrl.newClass.period" required>
+                            <md-option ng-repeat="period in ctrl.periods" ng-value="period.value">{{ period.label }}</md-option>
+                        </md-select>
+                        <div ng-messages="newContactForm.period.$error" ng-if="newContactForm.$submitted || newContactForm.period.$touched">
+                            <div ng-message="required">O período é obrigatório.</div>
+                        </div>
+                    </md-input-container>
+
+                </div>
+                <div>
+                    <md-input-container class="md-block" flex-gt-sm="100" flex="100">
+                        <label>Detalhes do contato</label>
+                        <textarea   name="name" ng-model="ctrl.newClass.name"
+                                    type="text"
+                                    required ng-minlength="5" ng-maxlength="100" rows="5" md-select-on-focus>
+                        </textarea>
+            
+                        <div ng-messages="newContactForm.name.$error" ng-if="newContactForm.$submitted || newContactForm.name.$touched">
+                            <div ng-message="required">O Nome é obrigatório.</div>
+                            <div ng-message="minlength">O Nome precisa conter pelo menos 5 caracteres.</div>
+                            <div ng-message="maxlength">O Nome precisa não pode conter mais de 100 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </form>
+
+        </md-card-content>
+    </md-card>
+</md-content>
